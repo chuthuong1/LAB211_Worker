@@ -21,13 +21,13 @@ public class WorkerController {
     public WorkerController(){
         workerManager = new WorkerManager();
     }
-    public Worker addWorker(){
+    public Worker addWorker() throws Exception{
         workerinputer = new WorkerInputer();
         Worker w = workerinputer.inputWorker();
         if(workerManager.addWorker(w)){
             return w;
         }
-       return null;
+       throw new Exception("add faild!");
     }
     
     public void displayWorker(){
@@ -35,7 +35,7 @@ public class WorkerController {
     }
     public  Worker updateWorker(UpdateWorker.StatusWorker statusWorker) throws Exception{
         String code = ValidationAndNormalizingTextUtil.getStringByRegex("Enter code: ", "Enter code again", "[A-Za-z]+");
-        double money = ValidationAndNormalizingTextUtil.getFloat("Enter salảy: ", "Enter number", "Out of ranger", 0, Float.MAX_EXPONENT);
+        double money = ValidationAndNormalizingTextUtil.getDouble("Enter salary: ", "Enter number", "Out of ranger", 0, Double.MAX_VALUE);
         return workerManager.updateWorker(code, money, statusWorker);
         
     }

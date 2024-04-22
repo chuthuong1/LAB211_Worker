@@ -24,8 +24,8 @@ public class WorkerInputer {
         worker.setCode(ValidationAndNormalizingTextUtil.getStringByRegex("Enter code: ", "Erro format", "[A-Za-z]+"));
         worker.setName(ValidationAndNormalizingTextUtil.getStringByRegex("Enter Name: ", "Erro format", "[A-Za-z]+"));
         worker.setAge(ValidationAndNormalizingTextUtil.getInt("Enter Age: ", "number only", "Out off ranger", 1, Integer.MAX_VALUE));
-        worker.setSalary(ValidationAndNormalizingTextUtil.getFloat("Enter Salary: ", "number only", "out of ranger", 1, Float.MAX_VALUE));
-
+        worker.setSalary(ValidationAndNormalizingTextUtil.getDouble("Salary: ", "erro fomat", "out of ranger", 0, Double.MAX_VALUE));
+        worker.setWorkLocation(ValidationAndNormalizingTextUtil.getStringByRegex("Enter WorkerLocation: ", "Erro format", "[A-Za-z]+"));
         return worker;
     }
 }

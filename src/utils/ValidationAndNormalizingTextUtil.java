@@ -29,24 +29,27 @@ public class ValidationAndNormalizingTextUtil {
 
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
         while (true) {
-            int ret = Integer.parseInt(getStringByRegex(mess, errorNumberFormat, "[0-9]+"));
-            if (ret < min || ret > max) {
-                System.err.println(errorOutOfRange);
-            } else {
-                return ret;
+            try {
+                int ret = Integer.parseInt(getStringByRegex(mess, errorNumberFormat, "[0-9]+"));
+                if (ret < min || ret > max) {
+                    System.err.println(errorOutOfRange);
+                } else {
+                    return ret;
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid input! Please enter a valid number.");
             }
         }
-
     }
-     public static float getFloat(String mess, String errorNumberFormat, String errorOutOfRange, float min, float max) {
+
+    public static double getDouble(String mess, String errorNumberFormat, String errorOutOfRange, double min, double max) {
         while (true) {
-            float ret = Float.parseFloat(getStringByRegex(mess, errorNumberFormat, "[0-9]+"));
+            double ret = Double.parseDouble(getStringByRegex(mess, errorNumberFormat, "[0-9]+"));
             if (ret < min || ret > max) {
                 System.err.println(errorOutOfRange);
             } else {
                 return ret;
             }
         }
-
     }
 }

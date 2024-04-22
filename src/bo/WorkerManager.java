@@ -26,17 +26,6 @@ public class WorkerManager {
         updateWorkers = new ArrayList<>();
     }
 
-    public boolean addWorker(Worker w) {
-        return worker.add(w);
-
-    }
-
-    public void disPlayWorker() {
-        for (Worker worker1 : worker) {
-            System.out.println(worker1);
-        }
-    }
-
     private int findIdWorker(String code) {
         for (int i = 0; i < worker.size(); i++) {
             if (worker.get(i).getCode().contains(code)) {
@@ -52,6 +41,19 @@ public class WorkerManager {
             return worker.get(index);
         }
         return null;
+    }
+
+    public boolean addWorker(Worker w) throws Exception {
+        if (getWorkerById(w.getCode()) == null) {
+            return worker.add(w);
+        }
+        throw new Exception("Da ton tai");
+    }
+
+    public void disPlayWorker() {
+        for (Worker worker1 : worker) {
+            System.out.println(worker1);
+        }
     }
 
     public Worker updateWorker(String code, double money, UpdateWorker.StatusWorker statusWorker) throws Exception {

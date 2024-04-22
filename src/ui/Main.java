@@ -19,18 +19,18 @@ public class Main {
     public static void main(String[] args) {
         WorkerController workercontroller = new WorkerController();
         while (true) {
-            System.out.println("+++ Menu ++");
-            System.out.println("+++ 1 Add worker ++");
-            System.out.println("+++ 2 Up worker ++");
-            System.out.println("+++ 3 Down worker ++");
-            System.out.println("+++ 4 Display info update ++");
-            System.out.println("+++ 5 Exit ++");
+            System.out.println(" Menu ");
+            System.out.println("1 Add worker ");
+            System.out.println("2 Up worker ");
+            System.out.println("3 Down worker ");
+            System.out.println("4 Display info update ");
+            System.out.println(" 5 Exit ");
             int choice = ValidationAndNormalizingTextUtil.getInt("Enter choice: ", "Number only ", "out of ranger 1 - 5 ", 1, 5);
             switch (choice) {
                 case 1:
                     try {
                         Worker w = workercontroller.addWorker();
-                        // System.out.println(String);
+                         System.out.println(w.STRING_WORKER);
                         System.out.println(w);
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
